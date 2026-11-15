@@ -182,6 +182,8 @@ useSeoMeta({
   border: 1px solid #dddddd; 
 }
 .portfolio-pic {
+  width: 100px;
+  margin: 0px auto;
   height: 139px;
   text-align: center;
   border: 1px solid silver;
