@@ -184,6 +184,7 @@ useSeoMeta({
 .portfolio-pic {
   height: 139px;
   text-align: center;
+  border: 1px solid silver;
   overflow: hidden;
 }
 .portfolio-pic img {
