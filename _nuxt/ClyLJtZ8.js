@@ -1,0 +1,1 @@
+import{P as e,f as t}from"./DCap10vU.js";import{t as n}from"#entry";var r={};function i(n,r){return e(),t(`hr`)}var a=Object.assign(n(r,[[`render`,i]]),{__name:`ProseHr`});export{a as default};

@@ -1,0 +1,1 @@
+import{P as e,R as t,f as n}from"./DCap10vU.js";import{t as r}from"#entry";var i={};function a(r,i){return e(),n(`strong`,null,[t(r.$slots,`default`)])}var o=Object.assign(r(i,[[`render`,a]]),{__name:`ProseStrong`});export{o as default};

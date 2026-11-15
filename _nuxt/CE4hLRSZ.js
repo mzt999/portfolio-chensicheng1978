@@ -1,0 +1,1 @@
+import{r as e}from"#entry";import{P as t,R as n,W as r,u as i}from"./DCap10vU.js";var a={__name:`ProseA`,props:{href:{type:String,default:``},target:{type:String,default:void 0,required:!1}},setup(a){let o=a;return(a,s)=>{let c=e;return t(),i(c,{href:o.href,target:o.target},{default:r(()=>[n(a.$slots,`default`)]),_:3},8,[`href`,`target`])}}};export{a as default};
