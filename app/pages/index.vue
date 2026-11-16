@@ -197,6 +197,14 @@ useSeoMeta({
   text-align:center;
   font-weight:bold;
 }
+.name1 a {
+  position: relative;
+}
+.name1 i {
+  position: absolute;
+  top: 2px;
+  right: -20px;
+}
 /*filter*/
 .filters {
   display: flex;
@@ -275,7 +283,7 @@ useSeoMeta({
 }
 @media all and (max-width: 375px) {
   .portfolio-unit {
-    margin: 0px 5px 20px;
+    margin: 0 0 20px 10px;
   }
 }
 </style>

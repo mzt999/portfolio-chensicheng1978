@@ -40,6 +40,7 @@ const friendSites = settings.value.friendSites;
 <style type="text/css">
 .sns {
   padding: 1px 8px 1px 2px;
+  font-weight: bold;
 }
 .sns:hover {
   background: #d1d1d1;
