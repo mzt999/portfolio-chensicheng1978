@@ -197,14 +197,6 @@ useSeoMeta({
   text-align:center;
   font-weight:bold;
 }
-.name1 a {
-  position: relative;
-}
-.name1 i {
-  position: absolute;
-  top: 2px;
-  right: -20px;
-}
 /*filter*/
 .filters {
   display: flex;
