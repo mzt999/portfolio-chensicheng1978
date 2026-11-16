@@ -18,7 +18,7 @@ useHead({
     { rel: 'shortcut icon', type: 'image/x-icon', href: prefix+'favicon.ico' },
     { rel: 'icon', type: 'image/x-icon', href: prefix+'favicon.ico' },
     { rel: 'stylesheet', href: prefix+'css/style.css' },
-    { rel: 'stylesheet', href: prefix+'fontawesome-2026/css/all.min.css'},
+    { rel: 'stylesheet', href: prefix+'font-awesome/css/all.min.css'},
   ],
 })
 
