@@ -1,1 +1,0 @@
-import{n as e,t}from"./d-g28Zhi.js";import{P as n,R as r,_ as i,f as a,l as o}from"./DCap10vU.js";import{t as s}from"#entry";var c={},l={class:`container`};function u(s,c){let u=e,d=t;return n(),a(`div`,l,[i(u),o(`main`,null,[r(s.$slots,`default`)]),i(d)])}var d=s(c,[[`render`,u]]);export{d as default};
