@@ -13,10 +13,7 @@
       <p>
         <a v-for="(item, i) in SNS" :key="i" :href="item.href" 
         target="_blank" class="no-decor-link sns"
-        >
-          <i class="fa-brands" :class="item.fa_class"></i>
-          {{item.name}}
-        </a>
+        ><i class="fa-brands" :class="item.fa_class"></i>{{item.name}}</a>
       </p>
     </div>
     <div class="aside-unit">
@@ -36,8 +33,7 @@ const { data: settings } = await useAsyncData('settings', () => {
 const author_name = settings.value.author_name;
 const profile_pic = settings.value.about.profile_pic;
 const intro = settings.value.about.intro;
-const SNS_weibo = settings.value.about.SNS_weibo;
-const SNS_douyin = settings.value.about.SNS_douyin;
+const SNS = settings.value.about.SNS;
 const friendSites = settings.value.friendSites;
 </script>
 
@@ -45,6 +41,7 @@ const friendSites = settings.value.friendSites;
 .sns {
   padding: 1px 8px 1px 2px;
   font-weight: bold;
+  display: inline-block;
 }
 .sns:hover {
   background: #d1d1d1;
