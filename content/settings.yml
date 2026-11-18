@@ -4,8 +4,16 @@ site_description: 幕后参与电影/电视剧作品集(粉丝自用)
 about:
   profile_pic: profile.jpg
   intro: 导演/编剧/监制/演员，以百亿票房系列电影《唐人街探案》闻名，擅长悬疑、犯罪电影。
-  SNS_weibo: https://weibo.com/u/1257866011
-  SNS_douyin: https://www.douyin.com/user/MS4wLjABAAAAC_5xOYFRrDCfiB-Rd76lv1izH1Icv42K_oIAxoJOj8XJ0YlsWo95Cn7dWOjDLB27
+  SNS: 
+    - name: 陈思诚
+      href: https://weibo.com/u/1257866011
+      fa_class: fa-weibo
+    - name: 陈思诚工作室
+      href: https://weibo.com/u/6315909485
+      fa_class: fa-weibo
+    - name: 陈思诚工作室
+      href: https://www.douyin.com/user/MS4wLjABAAAAC_5xOYFRrDCfiB-Rd76lv1izH1Icv42K_oIAxoJOj8XJ0YlsWo95Cn7dWOjDLB27
+      fa_class: fa-tiktok
 friendSites:
   - href: https://blog.sina.com.cn/u/1257866011
     text: 新浪博客(停更于2010年)

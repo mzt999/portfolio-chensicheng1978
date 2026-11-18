@@ -11,8 +11,12 @@
         </p>
       <p>{{intro}}</p>
       <p>
-        <a :href="SNS_weibo" target="_blank" class="no-decor-link sns"><i class="fa-brands fa-weibo"></i>陈思诚</a>&nbsp;
-        <a :href="SNS_douyin" target="_blank" class="no-decor-link sns"><i class="fa-brands fa-tiktok"></i>陈思诚工作室</a>
+        <a v-for="(item, i) in SNS" :key="i" :href="item.href" 
+        target="_blank" class="no-decor-link sns"
+        >
+          <i class="fa-brands" :class="item.fa_class"></i>
+          {{item.name}}
+        </a>
       </p>
     </div>
     <div class="aside-unit">

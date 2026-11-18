@@ -37,8 +37,11 @@ export default defineContentConfig({
         about: z.object({
           profile_pic: z.string(),
           intro: z.string(),
-          SNS_weibo: z.string(),
-          SNS_douyin: z.string(),
+          SNS: z.array(z.object({
+            name: z.string(),
+            href: z.string(),
+            fa_class: z.string(),
+          })),
         }),
         friendSites: z.array(z.object({
           href: z.string(),
