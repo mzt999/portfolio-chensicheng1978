@@ -587,7 +587,7 @@ useSeoMeta({
 }
 @media all and (max-width: 425px) {
   .lb-content {
-    width: 250px;
+    width: 300px;
     display: block;
   }
 }
