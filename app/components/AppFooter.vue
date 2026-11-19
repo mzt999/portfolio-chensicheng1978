@@ -16,6 +16,10 @@ const myFooter = settings.value.footer;
 
 <style type="text/css">
 footer {
+  margin: 0px auto;
+  width: 1080px;
+  max-width: 100%;
+  border-top: 1px solid silver;
   font-size: 14px;
   text-align: center;
 }

@@ -14,6 +14,15 @@ about:
     - name: 陈思诚工作室
       href: https://www.douyin.com/user/MS4wLjABAAAAC_5xOYFRrDCfiB-Rd76lv1izH1Icv42K_oIAxoJOj8XJ0YlsWo95Cn7dWOjDLB27
       fa_class: fa-tiktok
+news:
+  - text: "待播导演作品：《千里江山图》"
+  - text: "待播监制作品：《群星》《球状闪电》《唐探番外之王者归来》"
+  - text: "未开机作品：《漠河舞厅》《带上她的眼睛》"
+  # - text: 如有任何疑问，欢迎
+  #   link:
+  #     href: https://wj.qq.com/s2/14668810/d2da/
+  #     text: 联系我
+  #     fa_class: fa-external-link
 friendSites:
   - href: https://blog.sina.com.cn/u/1257866011
     text: 新浪博客(停更于2010年)

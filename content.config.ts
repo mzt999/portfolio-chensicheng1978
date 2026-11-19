@@ -43,6 +43,14 @@ export default defineContentConfig({
             fa_class: z.string(),
           })),
         }),
+        news: z.array(z.object({
+          text: z.string(),
+          link: z.object({
+            text: z.string(),
+            href: z.string(),
+            fa_class: z.string(),
+          }),
+        })),
         friendSites: z.array(z.object({
           href: z.string(),
           text: z.string(),

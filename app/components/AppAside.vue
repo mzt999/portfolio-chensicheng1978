@@ -17,6 +17,14 @@
       </p>
     </div>
     <div class="aside-unit">
+      <p><i class="fa fa-newspaper"></i>&nbsp;最新动态</p>
+      <hr>
+      <p v-for="(item, index) in news" :key="'news-line-'+index">
+        <span v-if="item.text">{{item.text}}</span>
+        <a v-if="item.link" :href="item.link.href" target="_blank">{{item.link.text}}<i class="fa" :class="item.link.fa_class"></i></a>
+      </p>
+    </div>
+    <div class="aside-unit">
       <p><i class="fa fa-external-link"></i>&nbsp;友情链接</p>
       <hr>
       <p v-for="(link, index) in friendSites" :key="index">
@@ -33,6 +41,7 @@ const { data: settings } = await useAsyncData('settings', () => {
 const author_name = settings.value.author_name;
 const profile_pic = settings.value.about.profile_pic;
 const intro = settings.value.about.intro;
+const news = settings.value.news;
 const SNS = settings.value.about.SNS;
 const friendSites = settings.value.friendSites;
 </script>

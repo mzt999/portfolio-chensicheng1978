@@ -304,9 +304,6 @@ footer p {
 	.main-content {
 		min-height: calc(100vh - 112px);
 	}
-	footer {
-		border-top: 1px solid rgba(0, 0, 0, 0.6);
-	}
 }
 
 .google-auto-placed.ap_container iframe {
