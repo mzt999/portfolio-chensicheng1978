@@ -181,6 +181,9 @@ useSeoMeta({
   border-radius: 10px;
   border: 1px solid #dddddd; 
 }
+.portfolio-unit:hover {
+  border-color: black;
+}
 .portfolio-pic {
   width: 100px;
   margin: 0px auto;
