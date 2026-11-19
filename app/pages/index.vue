@@ -591,6 +591,11 @@ useSeoMeta({
     display: block;
   }
 }
+@media all and (max-width: 375px) {
+  .lb-content {
+    width: 250px;
+  }
+}
 
 /*其他部分*/
 @media all and (max-width: 768px) {
