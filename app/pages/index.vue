@@ -587,13 +587,13 @@ useSeoMeta({
 }
 @media all and (max-width: 425px) {
   .lb-content {
-    width: 300px;
+    width: 320px;
     display: block;
   }
 }
 @media all and (max-width: 375px) {
   .lb-content {
-    width: 250px;
+    width: 300px;
   }
 }
 
