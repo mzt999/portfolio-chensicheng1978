@@ -585,7 +585,14 @@ useSeoMeta({
   .lb-nav.next { right: 8px; }
   .lb-info { max-height: none; }
 }
+@media all and (max-width: 425px) {
+  .lb-content {
+    width: 250px;
+    display: block;
+  }
+}
 
+/*其他部分*/
 @media all and (max-width: 768px) {
   .portfolio-pic {
     height: 311px;
