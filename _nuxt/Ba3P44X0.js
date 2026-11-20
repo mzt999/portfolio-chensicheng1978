@@ -1,0 +1,1 @@
+import{n as e,t}from"./Bxui9Xuf.js";import{t as n}from"./BjKwEuAm.js";import{F as r,p as i,u as a,v as o,z as s}from"./DeRMUZqo.js";import{t as c}from"#entry";var l={},u={class:`container-main`},d={class:`blog-wrap`};function f(c,l){let f=e,p=n,m=t;return r(),i(`div`,u,[o(f),a(`div`,d,[s(c.$slots,`default`),o(p)]),o(m)])}var p=c(l,[[`render`,f]]);export{p as default};
