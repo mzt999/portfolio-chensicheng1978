@@ -33,7 +33,8 @@ friendSites:
   # - href: https://mzt999.github.io/weibo-chensicheng1978
   #   text: 新浪微博备份(2009-2026)
 footer:
-  - text: 粉丝自制非官方站点｜素材版权归原权利人所有｜仅兴趣交流、无商业用途｜如有侵权请联系删除
+  - text: 粉丝自制非官方站点｜素材版权归原权利人所有
+  - text: 仅兴趣交流、无商业用途｜如有侵权请联系删除
   - text: 如有任何疑问，欢迎
     link:
       href: https://wj.qq.com/s2/14668810/d2da/
