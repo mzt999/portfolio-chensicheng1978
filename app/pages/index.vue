@@ -1,7 +1,7 @@
 <template>
   <main class="blog-main">
     <div>
-      <section class="filters">
+      <!-- <section class="filters">
         <div v-for="f in FILTERS" :key="f.key" class="filter-row">
           <div class="filter-head">
             <span class="filter-label">{{ f.label }}</span>
@@ -43,7 +43,79 @@
             重置全部
           </button>
         </div>
-      </section>
+      </section> -->
+
+          <!-- ========== 筛选区 ========== -->
+    <section ref="filtersRoot" class="filters">
+      <!-- 属性名栏 -->
+      <div class="filter-bar">
+        <button
+          v-for="f in FILTERS"
+          :key="f.key"
+          type="button"
+          class="filter-tab"
+          :class="{ open: openKey === f.key, active: selected[f.key].size > 0 }"
+          @click="toggleOpen(f.key)"
+        >
+          <span class="filter-tab-label">{{ f.label }}</span>
+          <span v-if="selected[f.key].size" class="filter-tab-badge">
+            {{ selected[f.key].size }}
+          </span>
+          <i class="fa-solid fa-chevron-down filter-tab-chevron"></i>
+        </button>
+
+        <button
+          v-if="hasFilters"
+          type="button"
+          class="reset-btn"
+          @click="clearAll"
+        >
+          重置
+        </button>
+      </div>
+
+      <!-- 展开的属性值面板 -->
+      <Transition name="drop">
+        <div v-if="openKey" class="filter-panel" @click.stop>
+          <div class="panel-head">
+            <span class="panel-title">选择{{ activeField?.label }}</span>
+            <button
+              v-if="selected[openKey].size"
+              type="button"
+              class="link"
+              @click="clearField(openKey)"
+            >
+              清除本项
+            </button>
+          </div>
+          <div class="panel-options">
+            <button
+              v-for="opt in options[openKey]"
+              :key="opt"
+              type="button"
+              class="chip"
+              :class="{ active: isSelected(openKey, opt) }"
+              :aria-pressed="isSelected(openKey, opt)"
+              @click="toggle(openKey, opt)"
+            >
+              {{ opt }}
+            </button>
+            <p
+              v-if="!options[openKey] || !options[openKey].length"
+              class="panel-empty"
+            >
+              暂无选项
+            </p>
+          </div>
+        </div>
+      </Transition>
+
+      <!-- 底部统计 -->
+      <div class="filter-footer">
+        <span>共 {{ filteredWorks.length }} / {{ validWorks.length }} 部</span>
+      </div>
+    </section>
+
     </div>
     <div class="portfolio-container">
       <div class="portfolio-unit" v-for="item in filteredWorks" :key="item.slug" 
@@ -223,6 +295,26 @@ const filteredWorks = computed(() => {
   )
 })
 
+// ==================== 下拉面板状态 ====================
+const openKey = ref(null)      // 当前展开的属性 key，null 表示全部收起
+const filtersRoot = ref(null)  // 用于点击外部关闭
+
+function toggleOpen(key) {
+  openKey.value = openKey.value === key ? null : key
+}
+
+function onClickOutside(e) {
+  if (!filtersRoot.value) return
+  if (!filtersRoot.value.contains(e.target)) {
+    openKey.value = null
+  }
+}
+
+// 当前展开的属性配置（用于面板标题）
+const activeField = computed(() =>
+  openKey.value ? FILTERS.find((f) => f.key === openKey.value) : null,
+)
+
 // ==================== 图片路径 ====================
 // 按你的实际静态资源目录调整；若 cover_image 已是完整 URL 或 / 开头路径会原样返回
 function coverUrl(work) {
@@ -388,33 +480,106 @@ useSeoMeta({
   font-size: 12px;
   color: gray;
 }
-/*filter*/
+/* ========== 筛选区 ========== */
 .filters {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin: 0px 10px 24px;
-  padding: 16px;
+  margin-bottom: 24px;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   background: #fafafa;
+  overflow: hidden;
 }
-.filter-row { display: flex; flex-direction: column; gap: 8px; }
-.filter-head {
+
+/* --- 属性名栏 --- */
+.filter-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
 }
-.filter-label {
-  font-weight: 600;
+
+.filter-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
   font-size: 14px;
   color: #374151;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
 }
-.filter-options {
+.filter-tab:hover { background: #f3f4f6; }
+.filter-tab.open { background: #eef2ff; color: #4f46e5; }
+.filter-tab.active { color: #4f46e5; font-weight: 500; }
+
+.filter-tab-chevron {
+  font-size: 9px;
+  color: #9ca3af;
+  transition: transform 0.2s, color 0.2s;
+}
+.filter-tab.open .filter-tab-chevron {
+  transform: rotate(180deg);
+  color: #4f46e5;
+}
+
+.filter-tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: #6366f1;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.reset-btn {
+  margin-left: auto;
+  padding: 4px 10px;
+  border: none;
+  background: none;
+  color: #6366f1;
+  font-size: 13px;
+  cursor: pointer;
+}
+.reset-btn:hover { text-decoration: underline; }
+
+/* --- 下拉面板 --- */
+.filter-panel {
+  padding: 14px 16px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #e5e7eb;
+}
+.panel-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: #374151;
+}
+
+.panel-options {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
+
 .chip {
   padding: 4px 12px;
   font-size: 13px;
@@ -431,15 +596,13 @@ useSeoMeta({
   border-color: #6366f1;
   color: #fff;
 }
-.filter-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+.panel-empty {
+  color: #9ca3af;
   font-size: 13px;
-  color: #6b7280;
-  border-top: 1px dashed #e5e7eb;
-  padding-top: 10px;
+  margin: 4px 0;
 }
+
 .link {
   background: none;
   border: none;
@@ -449,17 +612,26 @@ useSeoMeta({
   padding: 0;
 }
 .link:hover { text-decoration: underline; }
-.works { list-style: none; padding: 0; margin: 0; }
-.work-item {
-  display: flex;
-  gap: 12px;
-  padding: 8px 0;
-  border-bottom: 1px solid #f3f4f6;
-}
-.meta { color: #9ca3af; font-size: 13px; }
-.empty { color: #9ca3af; text-align: center; padding: 24px 0; }
 
-/* ========== 遮罩层 ========== */
+/* --- 底部统计 --- */
+.filter-footer {
+  padding: 10px 16px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* --- 下拉过渡 --- */
+.drop-enter-active,
+.drop-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.drop-enter-from,
+.drop-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+/* ========== 放大预览 ========== */
 .lb {
   position: fixed;
   inset: 0;
