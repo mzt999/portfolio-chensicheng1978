@@ -1,51 +1,6 @@
 <template>
   <main class="blog-main">
-    <div>
-      <!-- <section class="filters">
-        <div v-for="f in FILTERS" :key="f.key" class="filter-row">
-          <div class="filter-head">
-            <span class="filter-label">{{ f.label }}</span>
-            <button
-              v-if="selected[f.key].size"
-              class="link"
-              type="button"
-              @click="clearField(f.key)"
-            >
-              清除
-            </button>
-          </div>
-
-          <div class="filter-options">
-            <button
-              v-for="opt in options[f.key]"
-              :key="opt"
-              type="button"
-              class="chip"
-              :class="{ active: isSelected(f.key, opt) }"
-              :aria-pressed="isSelected(f.key, opt)"
-              @click="toggle(f.key, opt)"
-            >
-              {{ opt }}
-            </button>
-          </div>
-        </div>
-
-        <div class="filter-footer">
-          <span>
-            共 {{ filteredWorks.length }} / {{ validWorks.length }} 部
-          </span>
-          <button
-            v-if="hasFilters"
-            class="link"
-            type="button"
-            @click="clearAll"
-          >
-            重置全部
-          </button>
-        </div>
-      </section> -->
-
-          <!-- ========== 筛选区 ========== -->
+    <!-- ========== 筛选区 ========== -->
     <section ref="filtersRoot" class="filters">
       <!-- 属性名栏 -->
       <div class="filter-bar">
@@ -116,7 +71,6 @@
       </div>
     </section>
 
-    </div>
     <div class="portfolio-container">
       <div class="portfolio-unit" v-for="item in filteredWorks" :key="item.slug" 
       :aria-label="`查看 ${item.work_name}`"
@@ -759,15 +713,16 @@ useSeoMeta({
 }
 @media all and (max-width: 425px) {
   .lb-content {
-    width: 320px;
+    width: calc(min(70vw,320px));
+/*    width: 320px;*/
     display: block;
   }
 }
-@media all and (max-width: 375px) {
+/*@media all and (max-width: 375px) {
   .lb-content {
     width: 300px;
   }
-}
+}*/
 
 /*其他部分*/
 @media all and (max-width: 768px) {
