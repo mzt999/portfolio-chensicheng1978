@@ -25,6 +25,8 @@ export default defineContentConfig({
           douban_link: z.string(),
           cover_image: z.string(),
           intro: z.string(),
+          box_office: z.string(),
+          box_office_series: z.string(),
         }),
     }),
     settings: defineCollection({
@@ -45,11 +47,11 @@ export default defineContentConfig({
         }),
         news: z.array(z.object({
           text: z.string(),
-          link: z.object({
+          links: z.array(z.object({
             text: z.string(),
             href: z.string(),
             fa_class: z.string(),
-          }),
+          })),
         })),
         friendSites: z.array(z.object({
           href: z.string(),

@@ -21,7 +21,8 @@
       <hr>
       <p v-for="(item, index) in news" :key="'news-line-'+index">
         <span v-if="item.text">{{item.text}}</span>
-        <a v-if="item.link" :href="item.link.href" target="_blank">{{item.link.text}}<i class="fa" :class="item.link.fa_class"></i></a>
+        <a v-if="item.links" :href="link.href" v-for="(link, i) in item.links" :key="'news-line-'+index+'link'+i"
+        target="_blank" class="blog-link">&nbsp;{{link.text}}<i class="fa" :class="link.fa_class"></i></a>
       </p>
     </div>
     <div class="aside-unit">

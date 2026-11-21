@@ -151,8 +151,14 @@
             <p v-if="activeWork.main_actor" class="lb-line">
               <span class="lb-k">主演</span>{{ activeWork.main_actor }}
             </p>
+            <p v-if="activeWork.box_office" class="lb-line">
+              <span class="lb-k">票房</span>{{ activeWork.box_office }}
+            </p>
             <p v-if="activeWork.series" class="lb-line">
               <span class="lb-k">系列</span>{{ activeWork.series }}
+            </p>
+            <p v-if="activeWork.box_office_series" class="lb-line">
+              <span class="lb-k">系列票房</span>{{ activeWork.box_office_series }}
             </p>
             <p v-if="activeWork.douban_link" class="lb-line">
               <span class="lb-k">豆瓣</span><a :href="activeWork.douban_link" target="_blank">前往豆瓣<i class="fa fa-external-link"></i></a>
@@ -714,15 +720,9 @@ useSeoMeta({
 @media all and (max-width: 425px) {
   .lb-content {
     width: calc(min(70vw,320px));
-/*    width: 320px;*/
     display: block;
   }
 }
-/*@media all and (max-width: 375px) {
-  .lb-content {
-    width: 300px;
-  }
-}*/
 
 /*其他部分*/
 @media all and (max-width: 768px) {
